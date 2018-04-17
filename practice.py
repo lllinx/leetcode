@@ -11,3 +11,19 @@ def count(x):
 		else:
 			output[i]+=1
 	return output
+
+
+"""find intersection of 2 list:ex, A = [1, 1, 1, 1] B =[4, 5, 8, 1, 1]
+return [1,1]"""
+A=[1, 1, 1, 1]
+B=[4, 5, 8, 1, 1]
+
+def inter(l1,l2):
+	output=[]
+	for i in l1:
+		if i in l2:
+			output.append(i)
+			l2.remove(i)
+	return output
+
+
