@@ -8,15 +8,40 @@ You may assume that each input would have exactly one solution and you may not u
 Input: numbers={2, 7, 11, 15}, target=9
 Output: index1=1, index2=2
 """
-def twoSum(numbers, target):
+#method1: two pointer approach
+def twoSum1(numbers, target):
+        """
+        :type numbers: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        l,r,s=0,len(numbers)-1,0
+        while l<r:
+            s=numbers[l]+numbers[r]
+            if s==target:
+                return [l+1,r+1]
+            elif s<target:
+                l+=1
+            else:
+                r-=1
+
+#method2: binary search
+def twoSum2(numbers, target):
         """
         :type numbers: List[int]
         :type target: int
         :rtype: List[int]
         """
         for i in range(len(numbers)):
-            for j in range(i+1,len(numbers)):
-                if i+j==target:
-                    return [i,j]
-                j+=1
-            i+=1
+            l,r=i+1,len(numbers)-1
+            other=target-numbers[i]
+            while l<=r:
+                mid=l+(r-l)//2
+                if other==numbers[mid]:
+                    return [i+1,mid+1]
+                elif other<numbers[mid]:
+                    r-=1
+                else:
+                    l+=1
+
+
