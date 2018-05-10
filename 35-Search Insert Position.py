@@ -22,14 +22,31 @@ Output: 0
 """
 
 def searchInsert(nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
-        i=0
-        while i<=len(nums)-1:
-            if target<=nums[i]:
-                return i
-            i+=1
-        return len(nums)
+    """
+    :type nums: List[int]
+    :type target: int
+    :rtype: int
+    """
+    i=0
+    while i<=len(nums)-1:
+        if target<=nums[i]:
+            return i
+        i+=1
+    return len(nums)
+
+def searchInsert(nums, target):
+    """
+    :type nums: List[int]
+    :type target: int
+    :rtype: int
+    """
+    l,r=0,len(nums)-1
+    while l<=r:
+        m=(l+r)//2
+        if nums[m]==target:
+            return m
+        elif nums[m]>target:
+            r=m-1
+        else:
+            l=m+1
+    return l
