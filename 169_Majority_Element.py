@@ -22,4 +22,4 @@ def majorityelement2(nums):
 			result[ele]=1
 		else:
 			result[ele]+=1
-		return max(result,key=lambda k:result[k])
+	return max(result,key=lambda k:result[k])
