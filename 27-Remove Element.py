@@ -8,13 +8,15 @@
 
 # Your function should return length = 2, with the first two elements of nums being 2.
 
-def removeElement(self, nums, val):
-        """
-        :type nums: List[int]
-        :type val: int
-        :rtype: int
-        """
-        for x in list(nums):
-            if x==val:
-                nums.remove(x)
-        return len(nums)
+def removeElement(nums, val):
+    """
+    :type nums: List[int]
+    :type val: int
+    :rtype: int
+    """
+    i=0
+    for j in range(len(nums)):
+    	if nums[j]!=val:
+    		nums[i]=nums[j]
+    		i+=1
+    return i

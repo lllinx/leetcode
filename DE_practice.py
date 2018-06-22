@@ -38,16 +38,35 @@ def common_element(a,b):
 	result=[]
 	low=0
 	for i in a:
-		high=len(b)-1
+		low,high=0,len(b)-1
 		while low<high:
 			mid=(low+high)//2
 			if i==b[mid]:
 				result.append(i)
+				break
 			elif i<b[mid]:
 				high=mid-1
 			else:
 				low=mid+1
 	return result
+
+def common_element2(a,b):
+	index1,index2=0,0
+	result=[]
+	while index1<len(a) and index2<len(b):
+		if a[index1]==b[index2]:
+			result.append(a[index1])
+			index1+=1
+			index2+=1
+		elif a[index1]>b[index2]:
+			index2+=1
+		else:
+			index1+=1
+	return result
+
+print(common_element2([1,2,4,7],[-1,2,3,8]))
+
+
 """
 Count distinct words in a sentence
 """
