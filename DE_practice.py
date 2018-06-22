@@ -28,3 +28,58 @@ def friend_rel_count(l):
 					dic[j]+=1
 	return dic
 
+"""
+Find common elements of two sorted arrays, try to optimize the space utility
+a=[1,2,4,7,10,12,15]
+b=[-1,2,3,8,10,13,15,17]
+output=[2,10,15]
+"""
+def common_element(a,b):
+	result=[]
+	low=0
+	for i in a:
+		high=len(b)-1
+		while low<high:
+			mid=(low+high)//2
+			if i==b[mid]:
+				result.append(i)
+			elif i<b[mid]:
+				high=mid-1
+			else:
+				low=mid+1
+	return result
+"""
+Count distinct words in a sentence
+"""
+def count_distinct_word(s):
+	result=[]
+	s=s.split(" ")
+	for i in s:
+		if i not in result:
+			result.append(i)
+	return len(result)
+
+print(count_distinct_word("wonderful summer time you are my sunshine sunshine summer time"))
+
+"""
+Find the distinct elements in an input integer list, order by its original order
+"""
+def distinct_list(l):
+	if not l:
+		return 
+	result=[]
+	for i in l:
+		if result and i!=result[-1]:
+			result.append(i)
+		elif not result:
+			result.append(i)
+	return result
+
+print(distinct_list([1,2,2,3,5,7,7,9]))
+
+
+
+
+
+
+
