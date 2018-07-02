@@ -21,10 +21,20 @@ def twoSum(nums, target):
 	# 		j += 1
 	# 	i += 1
 
+	# for i in range(len(nums)):
+	# 	other=target-nums[i]
+	# 	if other in nums:
+	# 		j=nums.index(other)
+	# 		if i!=j:
+	# 			return [i,j]
+	# 	i+=1
+
+	dic={}
 	for i in range(len(nums)):
-		other=target-nums[i]
-		if other in nums:
-			j=nums.index(other)
-			if i!=j:
-				return [i,j]
-		i+=1
+		if (target-nums[i]) in dic.keys():
+			return [dic[target-nums[i]],i]
+		else:
+			dic[nums[i]]=i
+
+
+
