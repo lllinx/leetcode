@@ -195,6 +195,22 @@ def sum_ab(a,b):
 	return result
 
 
+"session_id, user_id, step_id, time, cancle_or_not"
+data=[
+[1,0,1,1.5,"No"],
+[1,0,2,2,"No"],
+[1,0,3,3,"No"],
+[1,0,2,3,"No"],
+[1,0,3,1.5,"No"],
+[2,1,1,1.5,"No"],
+[2,1,2,1.5,"No"],
+[2,1,3,1.5,"No"],
+[3,0,1,1.5,"No"],
+]
+
+
+
+def hashmap()
 
 
 
