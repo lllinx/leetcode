@@ -209,8 +209,10 @@ data=[
 ]
 
 
+def hashmap(data):
+	
 
-def hashmap()
+
 
 
 
