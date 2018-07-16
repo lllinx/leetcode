@@ -1,0 +1,36 @@
+
+"""
+Note:
+
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+Example 1:
+
+Input: [2,2,1]
+Output: 1
+
+Example 2:
+
+Input: [4,1,2,1,2]
+Output: 4
+"""
+
+def singleNumber(nums):
+	"""
+	bit manipulation
+	"""
+	a=0
+	for i in nums:
+		a ^= i
+	return a
+
+def singleNumber2(nums):
+	dic={}
+	for i in nums:
+		if i in dic:
+			del dic[i]
+		else:
+			dic[i]=1
+	return dic.popitem()[0]
+
+
