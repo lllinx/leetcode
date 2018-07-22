@@ -27,3 +27,5 @@ def numJewelsInStones(J, S):
 		if st in J:
 			result+=1
 	return result
+
+	
