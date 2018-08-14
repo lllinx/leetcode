@@ -29,8 +29,24 @@ A solution set is:
 """
 
 def combinationSum(candidates,target):
-	res=[]
-	def dfs(candidates,target,res,temp,index):
+  candidates.sort()
+  res=[]
+  def dfs(candidates,remainder,res,temp,index):
+    if remainder<0:
+      return
+    elif remainder==0:
+      res.append(temp[:])
+      return
+    for i in range(index,len(candidates)):
+      temp.append(candidates[i])
+      dfs(candidates,remainder-candidates[i],res,temp,i)
+      temp.pop()
+    return res
+  dfs(candidates,target,res,[],0)
+  return res
+
+
+
 		
 
 
