@@ -18,3 +18,33 @@ Note:
 """
 
 def letterCasePermutation(s):
+	res=[""]
+	for ch in s:
+		if ch.isalpha():
+			res=[i+j for i in res for j in [ch.upper(),ch.lower()]]
+		else:
+			res=[i+ch for i in res]
+	return res
+
+def letterCasePermutation2(s):
+	res=[]
+	def helper(s,res,index):
+		if index==len(s):
+			res.append(s)
+			return
+		if s[index].isalpha():
+			s=s[:index]+s[index].lower()+s[index+1:]
+			helper(s,res,index+1)
+			s=s[:index]+s[index].upper()+s[index+1:]
+			helper(s,res,index+1)
+		else:
+			helper(s,res,index+1)
+		return res
+	helper(s,res,0)
+	return res
+	
+
+
+
+
+

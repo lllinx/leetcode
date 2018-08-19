@@ -24,34 +24,37 @@ What if negative numbers are allowed in the given array?
 How does it change the problem?
 What limitation we need to add to the question to allow negative numbers? 
 """
-
+# time limit exceeded
 def combinationSum4_basic(nums, target):
-	if target==0:
-		return 1
-	elif target<0:
-		return 0
-	res=0
-	for num in nums:
-		if target>num:
-			res+=combinationSum4_basic(nums, target-num)
-	return res
-	
+	def helper(nums, target, res):
+		if target==0:
+			return 1
+		elif target<0:
+			return 0
+		res=0
+		for num in nums:
+			if target>=num:
+				res+=helper(nums, target-num, res)
+		return res
+	return helper(nums,target,0)
+
+# time limit exceeded	
 def combinationSum_ad(nums, target):
 	dp=[-1 for _ in range(target+1)]
 	dp[0]=1
-	res=0
-	def helper(nums,target):
+	def helper(nums,target,res):
 		if dp[target]!=-1:
 			return dp[target]
-
+		res=0
 		for i in range(len(nums)):
-			if target>nums[i]:
-				res+=helper(nums,target-nums[i])
+			if target>=nums[i]:
+				res+=helper(nums,target-nums[i],res)
 		dp[target]=res
 		return res
 
-	return helper(nums,target)
+	return helper(nums,target,0)
 
+# correct solution
 def combinationSum4(nums,target):
 	comb=[0 for _ in range(target+1)]
 	comb[0]=1
