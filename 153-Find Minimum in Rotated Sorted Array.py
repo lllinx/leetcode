@@ -23,7 +23,7 @@ def findmin(nums):
 			return nums[l]
 		else:
 			mid=(l+r)//2
-			if nums[mid]>nums[l]:
+			if nums[mid]>=nums[l]:
 				l=mid+1
 			else:
 				r=mid
