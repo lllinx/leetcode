@@ -12,15 +12,14 @@ Follow up:
 If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 """
 def maxsubarray(nums):
-	dp=[0 for _ in range(len(nums))]
-	dp[0]=nums[0]
-	answer=dp[0]
+	dp=[num for num in nums]
+	result=dp[0]
 	for i in range(len(nums)):
 		if dp[i-1]>0:
 			dp[i]=dp[i-1]+nums[i]
 		else:
 			dp[i]=nums[i]
-		answer=max(answer,dp[i])
-	return answer
+		result=max(result,dp[i])
+	return result
 	
 

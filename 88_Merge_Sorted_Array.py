@@ -25,3 +25,26 @@ def merge(nums1,m,nums2,n):
 	if n>0:
 		nums1[:n]=nums2[:n]
 	return nums1
+
+def merge_2_sorted_list(nums1,nums2):
+	result=[]
+	i,j=0,0
+	while i<len(nums1) and j<len(nums2):
+		if nums1[i]>nums2[j]:
+			result.append(nums2[j])
+			j+=1
+		else:
+			result.append(nums1[i])
+			i+=1
+	if i<len(nums1):
+		result.extend(nums1[i:])
+	if j<len(nums2):
+		result.extend(nums2[j:])
+	return result
+
+
+
+
+
+
+
