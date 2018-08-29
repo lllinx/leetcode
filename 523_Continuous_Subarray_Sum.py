@@ -15,4 +15,15 @@ Explanation: Because [23, 2, 6, 4, 7] is an continuous subarray of size 5 and su
 """
 
 def checkSubarraySum(nums,k):
-	
+	dic={0:-1}
+	sums=0
+	for i in range(len(nums)):
+		sums+=nums[i]
+		if k!=0:
+			sums=sums%k
+		if sums in dic:
+			if i-dic[sums]>1:
+				return True
+		else:
+			dic[sums]=i
+	return False	
