@@ -13,4 +13,11 @@ Output: "9534330"
 """
 
 def largestNumber(nums):
+	nums=[str(x) for x in nums]
+	longest=max([len(x) for x in nums])
+	nums.sort(key=lambda x:x*(longest//len(x)+1),reverse=True)
+	if nums and nums[0]=="0":
+		return "0"
+	return "".join(nums)
+
 	
