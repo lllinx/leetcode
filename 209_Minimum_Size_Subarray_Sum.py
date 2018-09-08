@@ -26,9 +26,34 @@ def MinSubArrayLen(s,nums):
 	return result
 
 # two pointer
-
+# time complexity N
 def MinSubArrayLen2(s,nums):
-	
+	result=len(nums)+1
+	i,j,sums=0,0,0
+	while j<len(nums):
+		sums+=nums[j]
+		j+=1
+		while sums>=s:
+			result=min(result,j-i)
+			sums-=nums[i]
+			i+=1
+	if result==len(nums)+1:
+		return 0
+	return result
+
+def MinSubArrayLen3(s,nums):
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
