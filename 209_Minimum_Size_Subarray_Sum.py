@@ -42,6 +42,7 @@ def MinSubArrayLen2(s,nums):
 	return result
 
 def MinSubArrayLen3(s,nums):
+	
 
 
 
