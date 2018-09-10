@@ -42,6 +42,25 @@ def MinSubArrayLen2(s,nums):
 	return result
 
 def MinSubArrayLen3(s,nums):
+	result=len(nums)+1
+	sums=[0 for i in range(len(nums)+1)]
+	for i in range(1,len(nums)+1):
+		sums[i]=sums[i-1]+nums[i-1]
+	def binarysearch(low,high,sums,find):
+		while low<=high:
+			mid=(low+high)//2
+			if sums[mid]>=find:
+				high=mid-1
+			else:
+				low=mid+1
+		return low
+	for i in range(len(nums)):
+		end=binarysearch(i+1,len(sums)-1,sums,sums[i]+s)
+		if end-i<result:
+			result=end-i
+	if result==len(nums)+1:
+		return 0
+	return result
 	
 
 
