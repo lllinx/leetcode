@@ -26,3 +26,5 @@ def maxProduct(nums):
 		result=max(result, maxs)
 
 	return result
+
+
