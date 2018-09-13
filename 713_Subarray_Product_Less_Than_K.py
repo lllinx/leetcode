@@ -17,4 +17,18 @@ Note:
 """
 
 def numSubarrayProductLessThanK(nums,k):
+	if k<=1:
+		return 0
+	low=0
+	product=1
+	result=0
+	for high in range(len(nums)):
+		product*=nums[high]
+		while product>=k:
+			product/=nums[low]
+			low+=1
+		result+=high-low+1
+	return result
+
+
 	
