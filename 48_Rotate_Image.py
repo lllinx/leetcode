@@ -28,12 +28,13 @@ def rotate(matrix):
 	:type matrix: List[List[int]]
 	:rtype: void Do not return anything, modify matrix in-place instead.
 	"""
-	length=len(matrix)
-	result=[]
-	for i in range(length):
-		new_list=[ele[i] for ele in matrix][::-1]
-		result.append(new_list)
-	return result
+	# divide to 2 step of transpose and flip
+	for i in range(len(matrix)):
+		for j in range(i+1,len(matrix)):
+			matrix[i][j],matrix[j][i]=matrix[j][i],matrix[i][j]
+	for row in matrix:
+		row[:]=row[::-1]
+	return matrix
 
 
 
