@@ -13,4 +13,16 @@ Output: 4
 """
 
 def findKthLargest(nums, k):
-	
+	result=[[0 for i in range(len(M[0]))] for j in range(len(M))]
+	for i in range(len(M)):
+		for j in range(len(M[0])):
+			count=0
+			ans=0
+			for r in (i-1,i,i+1):
+				for c in (j-1,j,j+1):
+					if 0<=r<len(M) and 0<=c<len(M[0]):
+						ans+=M[r][c]
+						count+=1
+			result[i][j]=int(ans/count)
+	return result
+
