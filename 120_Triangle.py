@@ -16,7 +16,6 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
 def minimumTotal(triangle):
 	minlen=triangle[-1]
 	for layer in range(len(triangle)-2,-1,-1):
-		for i in range(0,1,layer+1):
+		for i in range(layer+1):
 			minlen[i]=min(minlen[i],minlen[i+1])+triangle[layer][i]
-			print(minlen[i])
-	return minlen
+	return minlen[0]
