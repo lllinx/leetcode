@@ -12,3 +12,17 @@ Explanation: The answer should be the total numbers in the range of 0 ≤ x < 10
 """
 
 def countNumbersWithUniqueDigits(n):
+	if n==0:
+		return 1
+	res=10
+	unique_digit=9
+	avail_num=9
+
+	while n>1 and avail_num>0:
+		unique_digit*=avail_num
+		res+=unique_digit
+		avail_num-=1
+		n-=1
+	return res
+
+	
