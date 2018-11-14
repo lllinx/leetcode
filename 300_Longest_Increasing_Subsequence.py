@@ -16,3 +16,21 @@ Follow up: Could you improve it to O(n log n) time complexity?
 """
 
 def lengthOfLIS(nums):
+	if len(nums)==0:
+		return 0
+	dp=[0 for i in range(len(nums))]
+	dp[0]=1
+	ans=dp[0]
+
+	for i in range(1,len(nums)):
+		maxval=0
+		for j in range(i):
+			if nums[i]>nums[j]:
+				maxval=max(maxval,dp[j])
+		dp[i]=maxval+1
+		ans=max(ans,dp[i])
+	return ans
+
+
+
+
