@@ -24,5 +24,29 @@ Return false.
 """
 
 def validWordAbbreviation(word, abbr):
+	i,j=0,0
+	while i<=len(word) and j<len(abbr):
+		if word[i]==abbr[j]:
+			i+=1
+			j+=1
+		# in test case word="a" abbr="01" return False
+		elif abbr[j]<="0" or abbr[j]>"9":
+			return False
+		elif abbr[j].isdigit():
+			contin=True
+			k=j
+			while k<len(abbr) and contin:
+				if abbr[k].isdigit():
+					k+=1
+				else:
+					contin=False
+			i+=int(abbr[j:k])
+			j=k
+		else:
+			return False
+	return i==len(word) and j==len(abbr)
+
+
+
 
 
