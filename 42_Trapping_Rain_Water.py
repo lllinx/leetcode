@@ -75,6 +75,8 @@ def trap_two_pointer2(height):
 	return result
 
 
+# stack
+
 
 
 
