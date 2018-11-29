@@ -44,5 +44,21 @@ def isMonotonic(A):
 		return True
 	return increase(A) or decrease(A)
 
+def isMonotonic2(A):
+	return all (A[i]>=A[i+1] for i in range(len(A)-1)) or all (A[i]<=A[i+1] for i in range(len(A)-1))
+
+def isMonotonic3(A):
+	increase,decrease=True,True
+	for i in range(len(A)-1):
+		if A[i]>A[i+1]:
+			increase=False
+		if A[i]<A[i+1]:
+			decrease=False
+	return increase or decrease
+
 	
+
+
+
+
 
