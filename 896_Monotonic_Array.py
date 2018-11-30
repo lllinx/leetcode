@@ -56,9 +56,3 @@ def isMonotonic3(A):
 			decrease=False
 	return increase or decrease
 
-	
-
-
-
-
-
