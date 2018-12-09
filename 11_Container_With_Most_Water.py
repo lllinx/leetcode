@@ -4,16 +4,16 @@ Given n non-negative integers a1, a2, ..., an, where each represents a point at 
 Note: You may not slant the container and n is at least 2
 """
 
-def maxArea(self, height):
-        """
-        :type height: List[int]
-        :rtype: int
-        """
-        max_area,l,r=0,0,len(height)-1
-        while l<r:
-            max_area=max(max_area,(r-l)*min(height[l],height[r]))
-            if height[l]<height[r]:
-                l+=1
-            else:
-                r-=1
-        return max_area
+def maxArea(height):
+    """
+    :type height: List[int]
+    :rtype: int
+    """
+    max_area,l,r=0,0,len(height)-1
+    while l<r:
+        max_area=max(max_area,(r-l)*min(height[l],height[r]))
+        if height[l]<height[r]:
+            l+=1
+        else:
+            r-=1
+    return max_area
